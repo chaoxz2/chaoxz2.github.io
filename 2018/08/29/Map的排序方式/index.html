@@ -153,55 +153,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,ArrayList&lt;Integer&gt;&gt;sortMap=<span class="keyword">new</span> LinkedHashMap&lt;String,ArrayList&lt;Integer&gt;&gt;();</span><br><span class="line">		<span class="keyword">for</span>(Map.Entry&lt;String,ArrayList&lt;Integer&gt;&gt; mapping:list1)&#123;</span><br><span class="line">			ArrayList ar3=(ArrayList)mapping.getValue();</span><br><span class="line">			sortMap.put(mapping.getKey(),ar3);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>完整程序为:</p>
-<pre><code>import net.mindview.util.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.TreeMap;
-import java.util.*;
-public class BackEx1126{
-    public static void main(String[] args){
-        Map&lt;String,ArrayList&lt;Integer&gt;&gt; map=new LinkedHashMap&lt;String,ArrayList&lt;Integer&gt;&gt;();
-        List&lt;String&gt; list=new ArrayList&lt;String&gt;(new TextFile(&quot;SetOperations.java&quot;,&quot;\\W+&quot;));
-        Set&lt;String&gt; set=new TreeSet&lt;String&gt;(list);
-        for(String x:set){
-            ArrayList&lt;Integer&gt;ar=new ArrayList&lt;Integer&gt;();
-            for(int i=0;i&lt;list.size();i++){
-                if(x.equals(list.get(i))){
-                    ar.add(i);
-                }
-            }
-            map.put(x,ar);
-        }
-        System.out.println(&quot;map: &quot;+map);
-        System.out.println();
-
-        List&lt;Map.Entry&lt;String,ArrayList&lt;Integer&gt;&gt;&gt; list1=new ArrayList&lt;Map.Entry&lt;String,ArrayList&lt;Integer&gt;&gt;&gt;(map.entrySet());
-        Collections.sort(list1,new Comparator&lt;Map.Entry&lt;String,ArrayList&lt;Integer&gt;&gt;&gt;(){
-            @Override
-            public int compare(Entry&lt;String,ArrayList&lt;Integer&gt;&gt; o1,Entry&lt;String,ArrayList&lt;Integer&gt;&gt; o2){
-            ArrayList ar1=(ArrayList)o1.getValue();
-            ArrayList ar2=(ArrayList)o2.getValue();
-            Integer aar1=(Integer)ar1.get(0);
-            Integer aar2=(Integer)ar2.get(0);
-            return aar1.compareTo(aar2);
-            }
-        });
-        System.out.println(&quot;list1: &quot;+list1);
-        System.out.println();
-        Map&lt;String,ArrayList&lt;Integer&gt;&gt;sortMap=new LinkedHashMap&lt;String,ArrayList&lt;Integer&gt;&gt;();
-        for(Map.Entry&lt;String,ArrayList&lt;Integer&gt;&gt; mapping:list1){
-            ArrayList ar3=(ArrayList)mapping.getValue();
-            sortMap.put(mapping.getKey(),ar3);
-        }
-        System.out.println(&quot;sortMap: &quot;+sortMap);
-    }
-}
-</code></pre><hr>
+<p>完整程序为:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> net.mindview.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Map.Entry;</span><br><span class="line"><span class="keyword">import</span> java.util.TreeMap;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BackEx1126</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Map&lt;String,ArrayList&lt;Integer&gt;&gt; map=<span class="keyword">new</span> LinkedHashMap&lt;String,ArrayList&lt;Integer&gt;&gt;();</span><br><span class="line">		List&lt;String&gt; list=<span class="keyword">new</span> ArrayList&lt;String&gt;(<span class="keyword">new</span> TextFile(<span class="string">"SetOperations.java"</span>,<span class="string">"\\W+"</span>));</span><br><span class="line">		Set&lt;String&gt; set=<span class="keyword">new</span> TreeSet&lt;String&gt;(list);</span><br><span class="line">		<span class="keyword">for</span>(String x:set)&#123;</span><br><span class="line">			ArrayList&lt;Integer&gt;ar=<span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;list.size();i++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(x.equals(list.get(i)))&#123;</span><br><span class="line">					ar.add(i);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			map.put(x,ar);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"map: "</span>+map);</span><br><span class="line">		System.out.println();</span><br><span class="line">		</span><br><span class="line">		List&lt;Map.Entry&lt;String,ArrayList&lt;Integer&gt;&gt;&gt; list1=<span class="keyword">new</span> ArrayList&lt;Map.Entry&lt;String,ArrayList&lt;Integer&gt;&gt;&gt;(map.entrySet());</span><br><span class="line">		Collections.sort(list1,<span class="keyword">new</span> Comparator&lt;Map.Entry&lt;String,ArrayList&lt;Integer&gt;&gt;&gt;()&#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Entry&lt;String,ArrayList&lt;Integer&gt;&gt; o1,Entry&lt;String,ArrayList&lt;Integer&gt;&gt; o2)</span></span>&#123;</span><br><span class="line">			ArrayList ar1=(ArrayList)o1.getValue();</span><br><span class="line">			ArrayList ar2=(ArrayList)o2.getValue();</span><br><span class="line">			Integer aar1=(Integer)ar1.get(<span class="number">0</span>);</span><br><span class="line">			Integer aar2=(Integer)ar2.get(<span class="number">0</span>);</span><br><span class="line">			<span class="keyword">return</span> aar1.compareTo(aar2);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		System.out.println(<span class="string">"list1: "</span>+list1);</span><br><span class="line">		System.out.println();</span><br><span class="line">		Map&lt;String,ArrayList&lt;Integer&gt;&gt;sortMap=<span class="keyword">new</span> LinkedHashMap&lt;String,ArrayList&lt;Integer&gt;&gt;();</span><br><span class="line">		<span class="keyword">for</span>(Map.Entry&lt;String,ArrayList&lt;Integer&gt;&gt; mapping:list1)&#123;</span><br><span class="line">			ArrayList ar3=(ArrayList)mapping.getValue();</span><br><span class="line">			sortMap.put(mapping.getKey(),ar3);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"sortMap: "</span>+sortMap);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
 <h3 id="2-Map-Entry排序方法详解"><a href="#2-Map-Entry排序方法详解" class="headerlink" title="2. Map.Entry排序方法详解"></a>2. Map.Entry排序方法详解</h3><p>通过实例不难看出,使用这种方法(Map.Entry+Collections.sort())排序有三个步骤:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">st=&gt;start: Start</span><br><span class="line">op1=&gt;operation: 创建储藏Map.Entry类对象的List(把对Map排序转化为对Collection排序)</span><br><span class="line">op2=&gt;operation: 重写Comparator中的compare()以实现各种个性化排序</span><br><span class="line">op3=&gt;operation: 创建LinkedListMap以储存排序后的Map</span><br><span class="line">e=&gt;end</span><br><span class="line"></span><br><span class="line">st-op1-&gt;op2-&gt;op3-&gt;e</span><br></pre></td></tr></table></figure>
 <p>涉及到的东西有:Collections.sort(),Comparator.compare(),compareTo().<br><strong>Collections.sort()</strong>:</p>
