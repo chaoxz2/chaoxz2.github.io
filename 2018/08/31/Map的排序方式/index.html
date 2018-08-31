@@ -88,7 +88,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags"><span class="toc-text">tags:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-实例"><span class="toc-text">1. 实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Map-Entry排序方法详解"><span class="toc-text">2. Map.Entry排序方法详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-更简单的例子"><span class="toc-text">2.1 更简单的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-对非基本类型排序"><span class="toc-text">2.2 对非基本类型排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-其他排序法"><span class="toc-text">3. 其他排序法</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-实例"><span class="toc-text">1. 实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Map-Entry排序方法详解"><span class="toc-text">2. Map.Entry排序方法详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-更简单的例子"><span class="toc-text">2.1 更简单的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-对非基本类型排序"><span class="toc-text">2.2 对非基本类型排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-其他排序法"><span class="toc-text">3. 其他排序法</span></a></li></ol>
 </div>
     
 </div>
@@ -130,9 +130,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <hr>
-<p>title: Map的排序方式<br>date: 2018-08-29 16:48:52</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>在对Map排序时学到了一种新的排序方式，那就是利用Map.Entry类和Collections.sort()方法排序。通过Map.Entry类创建一个Map对应的ArrayList,把”对Map排序”问题转化为”对Collection排序”.<a href="http://tool.oschina.net/apidocs/apidoc?api=jdk-zh" target="_blank" rel="noopener">参考链接</a></p>
+        <p>在对Map排序时学到了一种新的排序方式，那就是利用Map.Entry类和Collections.sort()方法排序。通过Map.Entry类创建一个Map对应的ArrayList,把”对Map排序”问题转化为”对Collection排序”.<a href="http://tool.oschina.net/apidocs/apidoc?api=jdk-zh" target="_blank" rel="noopener">参考链接</a></p>
 <hr>
 <h3 id="1-实例"><a href="#1-实例" class="headerlink" title="1. 实例"></a>1. 实例</h3><p>在《Java编程思想（第四版）》持有对象这一章中，有这样一个题，要求按照值对Map排序：</p>
 <blockquote>
