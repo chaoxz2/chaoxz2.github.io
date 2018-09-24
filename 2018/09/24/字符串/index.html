@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Java">
+    <meta name="keyword"  content="github">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        字符串 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Java自习室 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/hellojava.jpg" />
+        </div>
+        <div class="name">
+            <i>chaoxz2</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-不可变String"><span class="toc-text">1. 不可变String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-重载“-”与StringBuilder"><span class="toc-text">2. 重载“+”与StringBuilder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-无意识的递归"><span class="toc-text">3. 无意识的递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-String上的操作"><span class="toc-text">4. String上的操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-格式化输出"><span class="toc-text">5. 格式化输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-正则表达式"><span class="toc-text">6. 正则表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-扫描输入"><span class="toc-text">7. 扫描输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-StringTokenizer"><span class="toc-text">8. StringTokenizer</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> Java自习室 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        字符串
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-09-24 16:01:07</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#字符串 String" title="字符串 String">字符串 String</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="1-不可变String"><a href="#1-不可变String" class="headerlink" title="1. 不可变String"></a>1. 不可变String</h3><p>String对象时不可变的，String类中每一个看起来会修改String值的方法，是加上都是创建了一个全新的String对象，以包含修改过后的字符串内容，而最初的String对象则丝毫未动。<a href="https://github.com/chaoxz2/Thinking-in-Java-4th-/blob/master/exercise/%E5%AD%97%E7%AC%A6%E4%B8%B2/Immutable.java">示例</a></p>
+<h3 id="2-重载“-”与StringBuilder"><a href="#2-重载“-”与StringBuilder" class="headerlink" title="2. 重载“+”与StringBuilder"></a>2. 重载“+”与StringBuilder</h3><p>String对象是不可变的，你可以给一个String对象添加任意多的别名。因为String对象具有只读特性，所以指向它的任何引用都不可能改变它的值，因此也就不会对其他的引用有什么影响。不可变性也带来了效率问题。为String对象重载的“+”就是一个例子。<br>操作符“+”可以用来连接String：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Concatenation</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		String mango=<span class="string">"mango"</span>;</span><br><span class="line">		String s=<span class="string">"abc"</span>+mango+<span class="string">"def"</span>+<span class="number">47</span>;</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">/*Output:</span></span><br><span class="line"><span class="comment">abcmangodef47</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<p>在这个例子里，编译器创建了一个StringBuilder对象用以构造最终的String，并且为每个字符串调用一次StringBuilder的append()方法。最后调用toString（）生成结果，并存为s。StringBuilder类的详细信息可参考<a href="http://tool.oschina.net/apidocs/apidoc?api=jdk-zh">Java在线API文档</a>。<br>为一个类编写toString()方法时，如果字符串操作比较简单，就信赖编译器。如果要在toString()中使用循环，那么最好自己创建一个StringBuilder对象，用它来构造最终结果。<br>显式地创建StringBuilder对象可以使代码更简短，过程减少新的StringBuilder对象的创建，还可以指定大小，避免多次重新分配缓存。<br><a href="https://github.com/chaoxz2/Thinking-in-Java-4th-/blob/master/exercise/%E5%AD%97%E7%AC%A6%E4%B8%B2/UsingStringBuilder.java">参考示例</a><br><strong>注意：使用append()方法时切勿在参数列表里使用“+”，否则编译器会创造新的StringBuilder对象来处理参数列表里的“+”。</strong></p>
+<h3 id="3-无意识的递归"><a href="#3-无意识的递归" class="headerlink" title="3. 无意识的递归"></a>3. 无意识的递归</h3><p>Java每个类从根本上都是继承自Object类，标准容易类也不例外，所以它们也有toString（）方法，并且覆写了该方法，使得它生成的结果能够表达容器自身和容器所包含的对象。例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListDisplay</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		ArrayList&lt;Integer&gt; integers=<span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">			integers.add(i);</span><br><span class="line">		System.out.println(integers);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">/*Output:</span></span><br><span class="line"><span class="comment">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<p>假如希望toString()方法打印出对象的内存地址就会出错：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InfiniteRecursion</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">" InfiniteRecursion address: "</span>+<span class="keyword">super</span>.toString()+<span class="string">"\n"</span>;<span class="comment">//!return " InfiniteRecursion address: "+this+"\n";</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		List&lt;InfiniteRecursion&gt; v=<span class="keyword">new</span> ArrayList&lt;InfiniteRecursion&gt;();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">			v.add(<span class="keyword">new</span> InfiniteRecursion());</span><br><span class="line">		System.out.print(v);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*Output:</span></span><br><span class="line"><span class="comment">[ InfiniteRecursion address: InfiniteRecursion@61064425</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@d70c109</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@17ed40e0</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@50675690</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@31b7dea0</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@3ac42916</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@47d384ee</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@2d6a9952</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@22a71081</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@3930015a</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<p>当运行到<code>&quot; InfiniteRecursion address: &quot;+this</code>时就发生了自动转换，由InfiniteRecursion类型转换成了String类型：编译器看到String对象后跟着一个“+”，在后面的对象不是String，编译器试着将this转换成一个String。它怎么转换呢，正是通过调用this上的toString()方法，于是就发生了递归调用。<br>所以如果真的想打印出对象的地址，应该调用Object.toString()方法。所以，不应该使用this,而应该调用super.toString()方法。（使用<code>&quot; InfiniteRecursion address: &quot;+super.toString()</code>而不是<code>&quot; InfiniteRecursion address: &quot;+this</code>）</p>
+<h3 id="4-String上的操作"><a href="#4-String上的操作" class="headerlink" title="4. String上的操作"></a>4. String上的操作</h3><p>String对象具备的一些基本方法：<br><img src="https://i.imgur.com/LWgoUgH.png" alt=""></p>
+<h3 id="5-格式化输出"><a href="#5-格式化输出" class="headerlink" title="5. 格式化输出"></a>5. 格式化输出</h3><h3 id="6-正则表达式"><a href="#6-正则表达式" class="headerlink" title="6. 正则表达式"></a>6. 正则表达式</h3><h3 id="7-扫描输入"><a href="#7-扫描输入" class="headerlink" title="7. 扫描输入"></a>7. 扫描输入</h3><h3 id="8-StringTokenizer"><a href="#8-StringTokenizer" class="headerlink" title="8. StringTokenizer"></a>8. StringTokenizer</h3>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/chaoxz2">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+	
+  <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: '字符串',
+        owner: 'chaoxz2',
+        repo: 'chaoxz2.github.io',
+        oauth: {
+            client_id: 'eaa69212de0164f703ab',
+            client_secret: 'f0607274b90c3b29c7c452d98819ef69692652b8',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>
