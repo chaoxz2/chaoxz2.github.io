@@ -88,7 +88,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-不可变String"><span class="toc-text">1. 不可变String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-重载“-”与StringBuilder"><span class="toc-text">2. 重载“+”与StringBuilder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-无意识的递归"><span class="toc-text">3. 无意识的递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-String上的操作"><span class="toc-text">4. String上的操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-格式化输出"><span class="toc-text">5. 格式化输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-正则表达式"><span class="toc-text">6. 正则表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-扫描输入"><span class="toc-text">7. 扫描输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-StringTokenizer"><span class="toc-text">8. StringTokenizer</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-不可变String"><span class="toc-text">1. 不可变String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-重载“-”与StringBuilder"><span class="toc-text">2. 重载“+”与StringBuilder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-无意识的递归"><span class="toc-text">3. 无意识的递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-String上的操作"><span class="toc-text">4. String上的操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-格式化输出"><span class="toc-text">5. 格式化输出</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-printf"><span class="toc-text">1. printf()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-System-out-format"><span class="toc-text">2. System.out.format()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Formatter类"><span class="toc-text">3. Formatter类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-格式化说明符"><span class="toc-text">4. 格式化说明符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Formatter转换"><span class="toc-text">5. Formatter转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-String-format-方法"><span class="toc-text">6. String.format()方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-正则表达式"><span class="toc-text">6. 正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-基础"><span class="toc-text">1. 基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建正则表达式"><span class="toc-text">2. 创建正则表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-量词"><span class="toc-text">3. 量词</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Pattern和Matcher"><span class="toc-text">4. Pattern和Matcher</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-split"><span class="toc-text">5. split()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-替换操作"><span class="toc-text">6. 替换操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-reset"><span class="toc-text">7. reset()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-正则表达式与java-I-O"><span class="toc-text">8. 正则表达式与java I/O</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-扫描输入"><span class="toc-text">7. 扫描输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-StringTokenizer"><span class="toc-text">8. StringTokenizer</span></a></li></ol>
 </div>
     
 </div>
@@ -143,7 +143,254 @@
 <p>假如希望toString()方法打印出对象的内存地址就会出错：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InfiniteRecursion</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">" InfiniteRecursion address: "</span>+<span class="keyword">super</span>.toString()+<span class="string">"\n"</span>;<span class="comment">//!return " InfiniteRecursion address: "+this+"\n";</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		List&lt;InfiniteRecursion&gt; v=<span class="keyword">new</span> ArrayList&lt;InfiniteRecursion&gt;();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">			v.add(<span class="keyword">new</span> InfiniteRecursion());</span><br><span class="line">		System.out.print(v);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*Output:</span></span><br><span class="line"><span class="comment">[ InfiniteRecursion address: InfiniteRecursion@61064425</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@d70c109</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@17ed40e0</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@50675690</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@31b7dea0</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@3ac42916</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@47d384ee</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@2d6a9952</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@22a71081</span></span><br><span class="line"><span class="comment">,  InfiniteRecursion address: InfiniteRecursion@3930015a</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
 <p>当运行到<code>&quot; InfiniteRecursion address: &quot;+this</code>时就发生了自动转换，由InfiniteRecursion类型转换成了String类型：编译器看到String对象后跟着一个“+”，在后面的对象不是String，编译器试着将this转换成一个String。它怎么转换呢，正是通过调用this上的toString()方法，于是就发生了递归调用。<br>所以如果真的想打印出对象的地址，应该调用Object.toString()方法。所以，不应该使用this,而应该调用super.toString()方法。（使用<code>&quot; InfiniteRecursion address: &quot;+super.toString()</code>而不是<code>&quot; InfiniteRecursion address: &quot;+this</code>）</p>
 <h3 id="4-String上的操作"><a href="#4-String上的操作" class="headerlink" title="4. String上的操作"></a>4. String上的操作</h3><p>String对象具备的一些基本方法：<br><img src="https://i.imgur.com/LWgoUgH.png" alt=""></p>
-<h3 id="5-格式化输出"><a href="#5-格式化输出" class="headerlink" title="5. 格式化输出"></a>5. 格式化输出</h3><h3 id="6-正则表达式"><a href="#6-正则表达式" class="headerlink" title="6. 正则表达式"></a>6. 正则表达式</h3><h3 id="7-扫描输入"><a href="#7-扫描输入" class="headerlink" title="7. 扫描输入"></a>7. 扫描输入</h3><h3 id="8-StringTokenizer"><a href="#8-StringTokenizer" class="headerlink" title="8. StringTokenizer"></a>8. StringTokenizer</h3>
+<h3 id="5-格式化输出"><a href="#5-格式化输出" class="headerlink" title="5. 格式化输出"></a>5. 格式化输出</h3><h4 id="1-printf"><a href="#1-printf" class="headerlink" title="1. printf()"></a>1. printf()</h4><p>使用特殊的占位符来表示数据将来的位置，将插入格式化字符串的参数以逗号分隔，排成一行。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printf(<span class="string">"Row1: [%d %f]\n"</span>,x,y);</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-System-out-format"><a href="#2-System-out-format" class="headerlink" title="2. System.out.format()"></a>2. System.out.format()</h4><p>format方法可用于PrintStream或PrintWriter对象，其中也包括System.out对象。（format()与printf()是等价的，需要一个格式化字符串，加上一串参数即可，每个参数对应一个格式修饰符）。例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleFormat</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> x=<span class="number">5</span>;</span><br><span class="line">		<span class="keyword">double</span> y=<span class="number">5.332542</span>;</span><br><span class="line">		<span class="comment">//the old way:</span></span><br><span class="line">		System.out.println(<span class="string">"Row 1: ["</span>+x+<span class="string">" "</span>+y+<span class="string">"]"</span>);</span><br><span class="line">		<span class="comment">//the new way:</span></span><br><span class="line">		System.out.format(<span class="string">"Row 1: [%d %f]\n"</span>,x,y);</span><br><span class="line">		<span class="comment">//or:</span></span><br><span class="line">		System.out.printf(<span class="string">"Row 1: [%d %f]\n"</span>,x,y);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">/*Output:</span></span><br><span class="line"><span class="comment">Row 1: [5 5.332542]</span></span><br><span class="line"><span class="comment">Row 1: [5 5.332542]</span></span><br><span class="line"><span class="comment">Row 1: [5 5.332542]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="3-Formatter类"><a href="#3-Formatter类" class="headerlink" title="3. Formatter类"></a>3. Formatter类</h4><p>可以把Formatter看成一个翻译器，它将格式化字符串与数据翻译成需要的结果。当创建一个Formatter对象时，需要向其构造器传递一些信息，以告诉它最终的结果将向哪里输出，比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Turtle</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> Formatter f;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Turtle</span><span class="params">(String name,Formatter f)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name=name;</span><br><span class="line">		<span class="keyword">this</span>.f=f;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">		f.format(<span class="string">"%s The Turtle is at (%d,%d)\n"</span>,name,x,y);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		PrintStream outAlias=System.out;</span><br><span class="line">		Turtle tommy=<span class="keyword">new</span> Turtle(<span class="string">"Tommy"</span>,<span class="keyword">new</span> Formatter(System.out));</span><br><span class="line">		Turtle terry=<span class="keyword">new</span> Turtle(<span class="string">"Terry"</span>,<span class="keyword">new</span> Formatter(outAlias));</span><br><span class="line">		tommy.move(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">		terry.move(<span class="number">4</span>,<span class="number">8</span>);</span><br><span class="line">		tommy.move(<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">		tommy.move(<span class="number">2</span>,<span class="number">5</span>);</span><br><span class="line">		tommy.move(<span class="number">3</span>,<span class="number">3</span>);</span><br><span class="line">		tommy.move(<span class="number">3</span>,<span class="number">3</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">/*Output:</span></span><br><span class="line"><span class="comment">Tommy The Turtle is at (0,0)</span></span><br><span class="line"><span class="comment">Terry The Turtle is at (4,8)</span></span><br><span class="line"><span class="comment">Tommy The Turtle is at (3,4)</span></span><br><span class="line"><span class="comment">Tommy The Turtle is at (2,5)</span></span><br><span class="line"><span class="comment">Tommy The Turtle is at (3,3)</span></span><br><span class="line"><span class="comment">Tommy The Turtle is at (3,3)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<p>中的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PrintStream outAlias=System.out;</span><br><span class="line">Turtle tommy=<span class="keyword">new</span> Turtle(<span class="string">"Tommy"</span>,<span class="keyword">new</span> Formatter(System.out));</span><br><span class="line">Turtle terry=<span class="keyword">new</span> Turtle(<span class="string">"Terry"</span>,<span class="keyword">new</span> Formatter(outAlias));</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-格式化说明符"><a href="#4-格式化说明符" class="headerlink" title="4. 格式化说明符"></a>4. 格式化说明符</h4><p><strong><em>%[argument_index$][flags][width][.precision]conversion</em></strong><br>    width指定域的最小尺寸（formatter对象通过在必要时添加空格，来确保至少达到一个长度，默认是右对齐，可以通过使用“-”来改变对齐方式），可用于各种类型的数据转换，行为方式一样。<br>    precision用来指定最大尺寸。不是所有类型的数据都能使用它，应用于不同类型的数据转换时也有不同的意义:</p>
+<ul>
+<li>将precision应用于String时，表示打印String时输出字符的最大数量；</li>
+<li>将precision应用于浮点数时，表示小数部分要显示出来的位数（过多舍入，过少补零）；</li>
+<li>precision不能应用于整数。<br>例：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Receipt</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> total=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">private</span> Formatter f=<span class="keyword">new</span> Formatter(System.out);</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printTitle</span><span class="params">()</span></span>&#123;</span><br><span class="line">		f.format(<span class="string">"%-15s %5s %10s\n"</span>,<span class="string">"Item"</span>,<span class="string">"Qty"</span>,<span class="string">"Price"</span>);</span><br><span class="line">		f.format(<span class="string">"%15s %5s %10s\n"</span>,<span class="string">"----"</span>,<span class="string">"---"</span>,<span class="string">"-----"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(String name,<span class="keyword">int</span> qty,<span class="keyword">double</span> price)</span></span>&#123;</span><br><span class="line">		f.format(<span class="string">"%-15.15s %5d %10.2f\n"</span>,name,qty,price);</span><br><span class="line">		total+=price;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printTotal</span><span class="params">()</span></span>&#123;</span><br><span class="line">		f.format(<span class="string">"%-15s %5s %10.2f\n"</span>,<span class="string">"Tax"</span>,<span class="string">""</span>,total*<span class="number">0.06</span>);</span><br><span class="line">		f.format(<span class="string">"%-15s %5s %10s\n"</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">"-----"</span>);</span><br><span class="line">		f.format(<span class="string">"%-15s %5s %10.2f\n"</span>,<span class="string">"Total"</span>,<span class="string">""</span>,total*<span class="number">1.06</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Receipt receipt=<span class="keyword">new</span> Receipt();</span><br><span class="line">		receipt.printTitle();</span><br><span class="line">		receipt.print(<span class="string">"Jack's Magic Beans"</span>,<span class="number">4</span>,<span class="number">4.25</span>);</span><br><span class="line">		receipt.print(<span class="string">"Pricess Peas"</span>,<span class="number">3</span>,<span class="number">5.1</span>);</span><br><span class="line">		receipt.print(<span class="string">"Three Bears Porridge"</span>,<span class="number">1</span>,<span class="number">14.29</span>);</span><br><span class="line">		receipt.printTotal();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">/*Output:</span></span><br><span class="line"><span class="comment">Item              Qty      Price</span></span><br><span class="line"><span class="comment">           ----   ---      -----</span></span><br><span class="line"><span class="comment">Jack's Magic Be     4       4.25</span></span><br><span class="line"><span class="comment">Pricess Peas        3       5.10</span></span><br><span class="line"><span class="comment">Three Bears Por     1      14.29</span></span><br><span class="line"><span class="comment">Tax                         1.42</span></span><br><span class="line"><span class="comment">                           -----</span></span><br><span class="line"><span class="comment">Total                      25.06</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>令所有的宽度都由一个常量来控制，使宽度的改变更容易的<a href="https://github.com/chaoxz2/Thinking-in-Java-4th-/blob/master/exercise/%E5%AD%97%E7%AC%A6%E4%B8%B2/BackEx134.java">简化程序</a>。</p>
+<h4 id="5-Formatter转换"><a href="#5-Formatter转换" class="headerlink" title="5. Formatter转换"></a>5. Formatter转换</h4><p>常用类型转换：<br><img src="https://i.imgur.com/w1MsnRJ.png" alt=""><br><a href="https://github.com/chaoxz2/Thinking-in-Java-4th-/blob/master/exercise/%E5%AD%97%E7%AC%A6%E4%B8%B2/Conversion.java">示例程序</a><br>注意b转换，对于Boolean对象或者boolean基本类型，其转换结果使对应的true或false，但是，对其他类型的参数，只要不是null，转换的结果就永远是true。</p>
+<h4 id="6-String-format-方法"><a href="#6-String-format-方法" class="headerlink" title="6. String.format()方法"></a>6. String.format()方法</h4><p>String.format()是一个static方法，接受与Formatter.format()一样的参数，但返回一个String对象。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DatabaseException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">DatabaseException</span><span class="params">(<span class="keyword">int</span> transactionID,<span class="keyword">int</span> queryID,String message)</span></span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(String.format(<span class="string">"(t%d, q%d) %s"</span>, transactionID,queryID,message));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> DatabaseException(<span class="number">3</span>,<span class="number">7</span>,<span class="string">"Write failed"</span>);</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			System.out.println(e);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">/*Output:</span></span><br><span class="line"><span class="comment">DatabaseException: (t3, q7) Write failed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<p>其实在String.format（）内部，也是创建一个Formatter对象，然后将传入的参数传给这个Formatter。</p>
+<h3 id="6-正则表达式"><a href="#6-正则表达式" class="headerlink" title="6. 正则表达式"></a>6. 正则表达式</h3><h4 id="1-基础"><a href="#1-基础" class="headerlink" title="1. 基础"></a>1. 基础</h4><ul>
+<li>查找一个数字： “\d”</li>
+<li>查找一个或多个数字： “\d+”</li>
+<li>查找一个前面带负号的数字：”-\d”</li>
+<li>查找一个前面可能带负号的数字：”-?\d”</li>
+<li>查找一个前面带正号或者负号的数字：”(-|\+)?\d”(“+”在正则表达式中有特殊含义，所以用\将其转义。使之称为表达式中的一个普通字符)</li>
+</ul>
+<p>String自带的三个正则表达式工具：</p>
+<ul>
+<li>matcher()方法：<code>&quot;Hello World&quot;.matches(&quot;\\w+\\W\\w+&quot;)</code></li>
+<li>split()方法，功能是“将字符串从匹配正则表达式的地方切开”：<code>&quot;Hello World&quot;.split(&quot; &quot;)</code>;<a href="https://github.com/chaoxz2/Thinking-in-Java-4th-/blob/master/exercise/%E5%AD%97%E7%AC%A6%E4%B8%B2/Splitting.java">详细示例</a>。</li>
+<li>“替换”，替换符合正则表达式的第一个地方或者所有匹配的地方：<code>s.replaceFirst(&quot;f\\w+&quot;,&quot;hello&quot;)</code>或者<code>s.replaceAll(&quot;f\\w+&quot;,&quot;hello&quot;)</code><a href="https://github.com/chaoxz2/Thinking-in-Java-4th-/blob/master/exercise/%E5%AD%97%E7%AC%A6%E4%B8%B2/Replacing.java">详细示例</a>。</li>
+</ul>
+<h4 id="2-创建正则表达式"><a href="#2-创建正则表达式" class="headerlink" title="2. 创建正则表达式"></a>2. 创建正则表达式</h4><p>字符：</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B</td>
+<td>自定字符B</td>
+<td>\n</td>
+<td>换行符</td>
+<td></td>
+</tr>
+<tr>
+<td>\xhh</td>
+<td>十六进制值为0xhh的字符</td>
+<td>\r</td>
+<td>回车</td>
+<td></td>
+</tr>
+<tr>
+<td>\uhhhh</td>
+<td>十六进制表示为0xhhhh的Unicode字符</td>
+<td>\f</td>
+<td>换页</td>
+<td></td>
+</tr>
+<tr>
+<td>\t</td>
+<td>制表符Tab</td>
+<td>\e</td>
+<td>转义（Escape）</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>创建字符类的典型方式和一些预定义的类：<br>字符类：</p>
+<table>
+<thead>
+<tr>
+<th>字符串</th>
+<th>含义</th>
+<th>字符串</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>  .</td>
+<td>任意字符</td>
+<td>\s</td>
+<td>空白符（空格、tab、换行、换页和回车）</td>
+<td></td>
+</tr>
+<tr>
+<td> [abc]</td>
+<td>包含a、b和c的任何字符（a&#124;b&#124;c）</td>
+<td>\S</td>
+<td>非空白符（[^\s]）</td>
+<td></td>
+</tr>
+<tr>
+<td> [^abc]</td>
+<td>除了a、b和c之外的任何字符（否定）</td>
+<td>\d</td>
+<td>数字0-9</td>
+<td></td>
+</tr>
+<tr>
+<td> [a-zA-Z]</td>
+<td>从a到z或者从A到Z的任何字符（范围）</td>
+<td>\D</td>
+<td>非数字0-9[^0-9]</td>
+<td></td>
+</tr>
+<tr>
+<td> [abc[hij]]</td>
+<td>任意a、b、c、h、i和j字符（a&#124;b&#124;c&#124;h&#124;i&#124;j）</td>
+<td>\w</td>
+<td>词字符[a-zA-Z0-9]</td>
+<td></td>
+</tr>
+<tr>
+<td> [abc&amp;&amp;[hij]]</td>
+<td>任意h、i或j（交）</td>
+<td>\W</td>
+<td>非词字符[^\w]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>部分常用表达式：<br>逻辑操作符：</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> XY</td>
+<td>Y跟在X后面</td>
+</tr>
+<tr>
+<td> X&#124;Y</td>
+<td>X或者Y</td>
+</tr>
+<tr>
+<td>（X）</td>
+<td>捕获组，可以在表达式中用\i引用第i个捕获组</td>
+</tr>
+</tbody>
+</table>
+<p>匹配边界符：</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>含义</th>
+<th>表达式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>一行的起始位置</td>
+<td>\B</td>
+<td>非词的边界</td>
+</tr>
+<tr>
+<td>$</td>
+<td>一行的结束</td>
+<td>\G</td>
+<td>前一个匹配的结束</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>词的边界</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-量词"><a href="#3-量词" class="headerlink" title="3. 量词"></a>3. 量词</h4><p>量词描述了一个模式吸收输入文本的方式：</p>
+<ul>
+<li>贪婪型：量词总是贪婪的。贪婪表达式会为所有可能的模式发现尽可能多的匹配。</li>
+<li>勉强型：用问好来指定：这个量词匹配满足模式所需的最少字符数。</li>
+<li>占有型：目前只有在Java语言中可用。当正则表达式被应用于字符串时，会产生相当多的状态，以便在匹配失败时回溯。“占有型”量词不保存这些中间状态，以防止回溯。它们常常用于防止正则表达式失控。因此可以使正则表达式执行起来更有效。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>贪婪型</th>
+<th>勉强型</th>
+<th>占有型</th>
+<th>如何匹配</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X?</td>
+<td>X??</td>
+<td>X?+</td>
+<td>一个或者零个X</td>
+</tr>
+<tr>
+<td>X*</td>
+<td>X*?</td>
+<td>X*+</td>
+<td>零个或多个X</td>
+</tr>
+<tr>
+<td>X+</td>
+<td>X+?</td>
+<td>X++</td>
+<td>一个或者多个X</td>
+</tr>
+<tr>
+<td>X{n}</td>
+<td>X{n}?</td>
+<td>X{n}+</td>
+<td>恰好n次X</td>
+</tr>
+<tr>
+<td>X{n,}</td>
+<td>X{n,}?</td>
+<td>X{n,}+</td>
+<td>至少n次X</td>
+</tr>
+<tr>
+<td>X{n,m}</td>
+<td>X{n,m}?</td>
+<td>X{n,m}+</td>
+<td>X至少n次，且不超过m次</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：为了防止歧义，表达式X通常用括号括起来。</strong></p>
+<h4 id="4-Pattern和Matcher"><a href="#4-Pattern和Matcher" class="headerlink" title="4. Pattern和Matcher"></a>4. Pattern和Matcher</h4><p>String类提供的正则表达式功能有限，所以我们需自己构造正则表达式对象，使用java.util.regex包可以实现这个目标：</p>
+<ul>
+<li>首先，导入java.util.regex包。</li>
+<li>第二步，使用static Pattern.compile()方法编译正则表达式。在这个过程中，它会根据String类型的正则表达式生成一个Pattern对象。</li>
+<li>第三步，把想要检索的字符串传给Pattern对象的matcher()方法。matcher()方法会生成一个Matcher对象，它有很多功能可用（<a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/package-summary.html">官方文档</a>）。<br>例：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.regex.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> String s=</span><br><span class="line">	<span class="string">"Hello world, he put up his hands and said "</span>+</span><br><span class="line">	<span class="string">"I miss you, but I can't touch you, my love. "</span>+</span><br><span class="line">	<span class="string">"now it's time to say goodbye to this world and say heelo wo you,"</span>+</span><br><span class="line">	<span class="string">" I'm here."</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Pattern p=Pattern.compile(<span class="string">"\\w+"</span>);</span><br><span class="line">		Matcher m=p.matcher(s);</span><br><span class="line">		<span class="keyword">while</span>(m.find())&#123;</span><br><span class="line">			System.out.println(<span class="string">"Matcher() \""</span>+m.group()+<span class="string">"\" start at: "</span>+m.start()+<span class="string">" and end at: "</span>+(m.end()-<span class="number">1</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">/*Output:</span></span><br><span class="line"><span class="comment">Matcher() "Hello" start at: 0 and end at: 4</span></span><br><span class="line"><span class="comment">Matcher() "world" start at: 6 and end at: 10</span></span><br><span class="line"><span class="comment">Matcher() "he" start at: 13 and end at: 14</span></span><br><span class="line"><span class="comment">Matcher() "put" start at: 16 and end at: 18</span></span><br><span class="line"><span class="comment">Matcher() "up" start at: 20 and end at: 21</span></span><br><span class="line"><span class="comment">Matcher() "his" start at: 23 and end at: 25</span></span><br><span class="line"><span class="comment">Matcher() "hands" start at: 27 and end at: 31</span></span><br><span class="line"><span class="comment">Matcher() "and" start at: 33 and end at: 35</span></span><br><span class="line"><span class="comment">Matcher() "said" start at: 37 and end at: 40</span></span><br><span class="line"><span class="comment">Matcher() "I" start at: 42 and end at: 42</span></span><br><span class="line"><span class="comment">Matcher() "miss" start at: 44 and end at: 47</span></span><br><span class="line"><span class="comment">Matcher() "you" start at: 49 and end at: 51</span></span><br><span class="line"><span class="comment">Matcher() "but" start at: 54 and end at: 56</span></span><br><span class="line"><span class="comment">Matcher() "I" start at: 58 and end at: 58</span></span><br><span class="line"><span class="comment">Matcher() "can" start at: 60 and end at: 62</span></span><br><span class="line"><span class="comment">Matcher() "t" start at: 64 and end at: 64</span></span><br><span class="line"><span class="comment">Matcher() "touch" start at: 66 and end at: 70</span></span><br><span class="line"><span class="comment">Matcher() "you" start at: 72 and end at: 74</span></span><br><span class="line"><span class="comment">Matcher() "my" start at: 77 and end at: 78</span></span><br><span class="line"><span class="comment">Matcher() "love" start at: 80 and end at: 83</span></span><br><span class="line"><span class="comment">Matcher() "now" start at: 86 and end at: 88</span></span><br><span class="line"><span class="comment">Matcher() "it" start at: 90 and end at: 91</span></span><br><span class="line"><span class="comment">Matcher() "s" start at: 93 and end at: 93</span></span><br><span class="line"><span class="comment">Matcher() "time" start at: 95 and end at: 98</span></span><br><span class="line"><span class="comment">Matcher() "to" start at: 100 and end at: 101</span></span><br><span class="line"><span class="comment">Matcher() "say" start at: 103 and end at: 105</span></span><br><span class="line"><span class="comment">Matcher() "goodbye" start at: 107 and end at: 113</span></span><br><span class="line"><span class="comment">Matcher() "to" start at: 115 and end at: 116</span></span><br><span class="line"><span class="comment">Matcher() "this" start at: 118 and end at: 121</span></span><br><span class="line"><span class="comment">Matcher() "world" start at: 123 and end at: 127</span></span><br><span class="line"><span class="comment">Matcher() "and" start at: 129 and end at: 131</span></span><br><span class="line"><span class="comment">Matcher() "say" start at: 133 and end at: 135</span></span><br><span class="line"><span class="comment">Matcher() "heelo" start at: 137 and end at: 141</span></span><br><span class="line"><span class="comment">Matcher() "wo" start at: 143 and end at: 144</span></span><br><span class="line"><span class="comment">Matcher() "you" start at: 146 and end at: 148</span></span><br><span class="line"><span class="comment">Matcher() "I" start at: 151 and end at: 151</span></span><br><span class="line"><span class="comment">Matcher() "m" start at: 153 and end at: 153</span></span><br><span class="line"><span class="comment">Matcher() "here" start at: 155 and end at: 158</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Matcher.find()方法可以用来在CharSequence中查找多个匹配，例如：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.regex.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Pattern p=Pattern.compile(<span class="string">"\\w+"</span>);</span><br><span class="line">		Matcher m=p.matcher(<span class="string">"Evening is full of the linnet's wings"</span>);</span><br><span class="line">		<span class="keyword">while</span>(m.find())&#123;</span><br><span class="line">			System.out.println(m.group()+<span class="string">" start at: "</span>+m.start()+<span class="string">" end at: "</span>+(m.end()-<span class="number">1</span>));</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">		<span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span>(m.find(i))&#123;</span><br><span class="line">			System.out.print(m.group()+<span class="string">" "</span>);</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">/*Output:</span></span><br><span class="line"><span class="comment">Evening start at: 0 end at: 6</span></span><br><span class="line"><span class="comment">is start at: 8 end at: 9</span></span><br><span class="line"><span class="comment">full start at: 11 end at: 14</span></span><br><span class="line"><span class="comment">of start at: 16 end at: 17</span></span><br><span class="line"><span class="comment">the start at: 19 end at: 21</span></span><br><span class="line"><span class="comment">linnet start at: 23 end at: 28</span></span><br><span class="line"><span class="comment">s start at: 30 end at: 30</span></span><br><span class="line"><span class="comment">wings start at: 32 end at: 36</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Evening vening ening ning ing ng g is is s full full ull ll l of of f the the he e linnet linnet innet nnet net et t s s wings wings ings ngs gs s</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>第一个find()像迭代器那样前向遍历输入字符串，第二个find()接收一个整数作为参数，该整数表示字符串中字符的位置，并以其作为搜索的起点。从结果可以看出，后裔版本的find()能根据其参数的值不断重新设定搜索的起始位置。</p>
+<h4 id="5-split"><a href="#5-split" class="headerlink" title="5. split()"></a>5. split()</h4><h4 id="6-替换操作"><a href="#6-替换操作" class="headerlink" title="6. 替换操作"></a>6. 替换操作</h4><h4 id="7-reset"><a href="#7-reset" class="headerlink" title="7. reset()"></a>7. reset()</h4><h4 id="8-正则表达式与java-I-O"><a href="#8-正则表达式与java-I-O" class="headerlink" title="8. 正则表达式与java I/O"></a>8. 正则表达式与java I/O</h4><h3 id="7-扫描输入"><a href="#7-扫描输入" class="headerlink" title="7. 扫描输入"></a>7. 扫描输入</h3><h3 id="8-StringTokenizer"><a href="#8-StringTokenizer" class="headerlink" title="8. StringTokenizer"></a>8. StringTokenizer</h3>
         
         <div id="comment-container">
         </div>
