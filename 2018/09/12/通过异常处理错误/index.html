@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Java">
     <meta name="keyword"  content="github">
@@ -199,8 +200,14 @@
 <h5 id="2-对于自定义的异常类，让它继承自RuntimeException-甚至可以省去try-catch。"><a href="#2-对于自定义的异常类，让它继承自RuntimeException-甚至可以省去try-catch。" class="headerlink" title="2. 对于自定义的异常类，让它继承自RuntimeException,甚至可以省去try-catch。"></a>2. 对于自定义的异常类，让它继承自RuntimeException,甚至可以省去try-catch。</h5><p>例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span></span>&#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> MyException();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		f();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;<span class="comment">/*Output:</span></span><br><span class="line"><span class="comment">Exception in thread "main" MyException</span></span><br><span class="line"><span class="comment">        at Test.f(Test.java:5)</span></span><br><span class="line"><span class="comment">        at Test.main(Test.java:8)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
 
         
+        <br />
         <div id="comment-container">
         </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
     </div>
 </div>
     </div>
@@ -238,13 +245,7 @@
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
         Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
-	
-  <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
+</footer>
 
 
 
@@ -259,7 +260,7 @@
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <script src="/js/gitment.js"></script>
 <script>
@@ -274,5 +275,8 @@
     })
     gitment.render('comment-container')
 </script>
+
+
+
 
 </html>
